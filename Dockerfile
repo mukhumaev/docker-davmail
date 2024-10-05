@@ -1,7 +1,7 @@
 FROM eclipse-temurin:19-jre-alpine
 
 LABEL maintainer="jberrenberg"
-LABEL version="v6.1.0"
+LABEL version="v6.2.2"
 
 
 ADD https://downloads.sourceforge.net/project/davmail/davmail/6.2.2/davmail-6.2.2-3546.zip /tmp/davmail.zip
