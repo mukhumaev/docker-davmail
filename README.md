@@ -13,7 +13,12 @@ Run the container:
 ``` bash
 DAVMAIL_CONF=<absolute/path/to/davmail.properties>
 DAVMAIL_LOG=<absolute/path/to/davmail.log>
-docker run --name davmail -d -v ${DAVMAIL_CONF}:/etc/davmail -v ${DAVMAIL_LOG}:/var/log/davmail jberrenberg/davmail
+docker run --name davmail -d -v ${DAVMAIL_CONF}:/etc/davmail -v ${DAVMAIL_LOG}:/var/log/davmail mukhumaev/davmail
+```
+
+Build multiarch:
+```bash
+docker buildx build -t mukhumaev/davmail --platform linux/arm/v7,linux/arm64,linux/amd64 .
 ```
 
 ## Exposed ports
