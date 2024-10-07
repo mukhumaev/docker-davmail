@@ -1,15 +1,14 @@
-FROM eclipse-temurin:19-jre-alpine
-
-LABEL maintainer="jberrenberg"
-LABEL version="v6.2.2"
-
+FROM eclipse-temurin:17-jre
 
 ADD https://downloads.sourceforge.net/project/davmail/davmail/6.2.2/davmail-6.2.2-3546.zip /tmp/davmail.zip
 
-RUN adduser davmail -D && \
+RUN useradd davmail && \
   mkdir /usr/local/davmail && \
+  apt update && apt install -y unzip && \
   unzip -q /tmp/davmail.zip -d /usr/local/davmail && \
-  rm /tmp/davmail.zip
+  rm /tmp/davmail.zip && \
+  apt-get clean && \
+  rm -rf /var/lib/apt/lists/*
 
 VOLUME        /etc/davmail
 VOLUME        /var/log/davmail
